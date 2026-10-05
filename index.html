@@ -408,7 +408,7 @@
 
     <!-- Barre supérieure (desktop) : téléphone et réassurance -->
     <div class="hidden lg:block bg-brand-800 text-white text-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
         <p class="flex items-center gap-2">
           <i data-lucide="map-pin" class="w-4 h-4" aria-hidden="true"></i>
           Distributeur français de simulation médicale, basé à Saint-Cyr-l'École (78)
@@ -423,8 +423,8 @@
     </div>
 
     <!-- Barre principale -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-[72px] flex items-center justify-between gap-4">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-[72px] flex items-center justify-between gap-3 2xl:gap-4">
 
         <!-- Logo -->
         <a href="/" class="flex items-center shrink-0" aria-label="Medicalem, retour à l'accueil">
@@ -432,11 +432,11 @@
         </a>
 
         <!-- Navigation principale (desktop) -->
-        <nav class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+        <nav class="hidden xl:flex items-center gap-0.5 2xl:gap-1 whitespace-nowrap" aria-label="Navigation principale">
 
           <!-- Produits : méga-menu -->
           <div class="has-mega relative" data-open="false">
-            <button type="button" class="mega-trigger flex items-center gap-1 px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50" aria-expanded="false" aria-controls="mega-produits" aria-haspopup="true">
+            <button type="button" class="mega-trigger flex items-center gap-1 px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50" aria-expanded="false" aria-controls="mega-produits" aria-haspopup="true">
               Produits <i data-lucide="chevron-down" class="w-4 h-4" aria-hidden="true"></i>
             </button>
             <div id="mega-produits" class="mega absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[920px] bg-white rounded-2xl shadow-card border border-slate-100 p-8 grid grid-cols-3 gap-8">
@@ -485,28 +485,28 @@
             </div>
           </div>
 
-          <a href="/notre-expertise" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Notre expertise</a>
-          <a href="/sav-maintenance" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">SAV et maintenance</a>
-          <a href="/actualites" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Actualités</a>
-          <a href="/agenda" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Agenda</a>
-          <a href="/contact" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Contact</a>
+          <a href="/notre-expertise" class="px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Notre expertise</a>
+          <a href="/sav-maintenance" class="px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">SAV et maintenance</a>
+          <a href="/actualites" class="px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Actualités</a>
+          <a href="/agenda" class="px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Agenda</a>
+          <a href="/contact" class="px-2.5 2xl:px-3 py-2 rounded-lg text-sm 2xl:text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Contact</a>
         </nav>
 
         <!-- Recherche produits (desktop) -->
-        <form role="search" action="/recherche" method="get" class="hidden lg:flex items-center relative">
+        <form role="search" action="/recherche" method="get" class="hidden lg:flex items-center relative xl:flex-1 xl:min-w-[6.5rem] xl:max-w-[9rem] 2xl:max-w-[13rem]">
           <label for="recherche-produits" class="sr-only">Rechercher un simulateur ou un mannequin</label>
           <i data-lucide="search" class="w-4 h-4 absolute left-3 text-slate-400 pointer-events-none" aria-hidden="true"></i>
-          <input id="recherche-produits" name="q" type="search" placeholder="Rechercher un produit" class="w-44 xl:w-52 h-10 pl-9 pr-3 rounded-full border border-slate-200 bg-surface text-sm focus:w-64 transition-all focus:border-brand-400 focus:bg-white">
+          <input id="recherche-produits" name="q" type="search" placeholder="Rechercher un produit" class="w-44 xl:w-full h-10 pl-9 pr-3 rounded-full border border-slate-200 bg-surface text-sm focus:w-64 xl:focus:w-full transition-all focus:border-brand-400 focus:bg-white">
         </form>
 
         <!-- Actions -->
         <div class="flex items-center gap-2">
-          <a href="/ma-cotation" class="hidden md:inline-flex items-center gap-2 h-10 px-3 rounded-full border border-slate-200 text-sm font-semibold text-slate-800 hover:border-brand-400 hover:text-brand-600" aria-label="Ma cotation, voir les produits sélectionnés">
+          <a href="/ma-cotation" class="hidden md:inline-flex items-center gap-2 h-10 px-3 rounded-full border border-slate-200 text-sm font-semibold text-slate-800 whitespace-nowrap hover:border-brand-400 hover:text-brand-600" aria-label="Ma cotation, voir les produits sélectionnés" title="Ma cotation">
             <i data-lucide="clipboard-list" class="w-4 h-4" aria-hidden="true"></i>
-            <span>Ma cotation</span>
+            <span class="xl:hidden 2xl:inline">Ma cotation</span>
             <span id="cotation-count" class="min-w-[1.25rem] h-5 px-1 inline-flex items-center justify-center rounded-full bg-brand-600 text-white text-xs font-bold">0</span>
           </a>
-          <a href="/demande-de-devis" class="inline-flex items-center gap-2 h-10 px-4 rounded-full bg-accent-600 hover:bg-accent-700 text-white text-sm font-bold shadow-soft transition-colors">
+          <a href="/demande-de-devis" class="inline-flex items-center gap-2 h-10 px-4 rounded-full bg-accent-600 hover:bg-accent-700 text-white text-sm font-bold whitespace-nowrap shadow-soft transition-colors">
             <i data-lucide="file-text" class="w-4 h-4" aria-hidden="true"></i>
             <span class="hidden sm:inline">Demander un devis</span><span class="sm:hidden">Devis</span>
           </a>
