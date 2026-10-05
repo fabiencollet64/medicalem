@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ============================================================
+       SEO : balises principales
+       ============================================================ -->
+  <title>Simulateur médical et mannequin de simulation | Medicalem</title>
+  <meta name="description" content="Medicalem, distributeur français de simulateurs et mannequins médicaux : 1500 références, conseil expert, SAV interne, leasing, achat via Resah. Devis rapide.">
+  <link rel="canonical" href="https://www.medicalem.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0F4C81">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Medicalem">
+  <meta property="og:url" content="https://www.medicalem.com/">
+  <meta property="og:title" content="Simulateurs et mannequins médicaux pour la formation | Medicalem">
+  <meta property="og:description" content="Distributeur français de simulateurs et mannequins médicaux : plus de 1500 références, conseil d'experts, SAV et maintenance en interne, leasing et achat via Resah.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Formation à la réanimation sur un mannequin de simulation médicale">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simulateurs et mannequins médicaux pour la formation | Medicalem">
+  <meta name="twitter:description" content="Distributeur français de simulateurs et mannequins médicaux : plus de 1500 références, conseil d'experts, SAV interne, leasing et achat via Resah.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&h=630&q=80">
+
+  <!-- ============================================================
+       Performance : preconnect vers les CDN et Google Fonts
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://www.medicalem.com">
+
+  <!-- Typographie : Plus Jakarta Sans, font-display: swap géré par le paramètre display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (CDN, maquette uniquement : en production, compiler Tailwind) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* ------------------------------------------------------------
+       Direction artistique : palette dérivée du logo Medicalem
+       (bleu profond du logotype, rouge du symbole), modernisée.
+       brand  = couleur principale (navigation, titres, fonds)
+       accent = couleur d'action (CTA devis, ajout cotation)
+       ------------------------------------------------------------ */
+    if (window.tailwind) tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#EEF4FB',
+              100: '#D9E6F5',
+              200: '#B3CDEB',
+              300: '#7FAAD9',
+              400: '#4A86C4',
+              500: '#1F63A8',
+              600: '#0F4C81',
+              700: '#0B3C6E',
+              800: '#082C52',
+              900: '#051D38'
+            },
+            accent: {
+              50:  '#FDECEE',
+              100: '#FAD3D8',
+              500: '#D7263D',
+              600: '#B81F33',
+              700: '#961A2A'
+            },
+            surface: '#F6F8FB'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 4px 24px -6px rgba(8, 44, 82, 0.10)',
+            card: '0 12px 40px -12px rgba(8, 44, 82, 0.18)'
+          },
+          borderRadius: {
+            '2xl': '1.25rem',
+            '3xl': '1.75rem'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ------------------------------------------------------------
+       Styles complémentaires (hors utilitaires Tailwind)
+       ------------------------------------------------------------ */
+    html { scroll-behavior: smooth; }
+    body { font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; }
+
+    /* Focus clavier visible et homogène (accessibilité) */
+    :focus-visible { outline: 3px solid #1F63A8; outline-offset: 3px; border-radius: 4px; }
+
+    /* Apparition douce des sections au scroll */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Méga-menu : ouverture au survol, au focus clavier et au clic (aria-expanded) */
+    .has-mega:hover > .mega, .has-mega:focus-within > .mega, .has-mega[data-open="true"] > .mega { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+    .mega { opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none; transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+
+    /* Bandeau partenaires en défilement continu */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+
+    /* Images Unsplash : si une image ne charge pas, un fond dégradé reste visible */
+    [data-img] { background: linear-gradient(135deg, #D9E6F5 0%, #B3CDEB 50%, #7FAAD9 100%); }
+
+    /* Accordéon FAQ : rotation du chevron */
+    details[open] summary .faq-chevron { transform: rotate(180deg); }
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+
+    /* Chips domaine clinique : état actif */
+    .chip[aria-pressed="true"] { background: #0F4C81; color: #fff; border-color: #0F4C81; }
+
+    /* Respect des préférences de mouvement réduit */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .marquee-track { animation: none; }
+      * { transition-duration: .01ms !important; }
+    }
+  </style>
+
+  <!-- ============================================================
+       Données structurées JSON-LD
+       Organization + WebSite (SearchAction) + ItemList (Product) + FAQPage
+       Les questions/réponses FAQ reprennent exactement le texte affiché.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.medicalem.com/#organization",
+        "name": "Medicalem",
+        "legalName": "Medicalem",
+        "url": "https://www.medicalem.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.medicalem.com/wp-content/uploads/2021/04/Logo-Medicalem.png"
+        },
+        "slogan": "Parce que la vie est précieuse",
+        "description": "Medicalem est un distributeur français de simulateurs et mannequins médicaux pour la formation des professionnels de santé. Plus de 1500 références, plus de 4000 clients, conseil d'experts, SAV et maintenance en interne, leasing et achat simplifié via la centrale d'achat Resah.",
+        "telephone": "+33 1 39 16 71 90",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6 boulevard Georges Marie Guynemer, ZA Charles Renard, Bâtiment 3",
+          "postalCode": "78210",
+          "addressLocality": "Saint-Cyr-l'École",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "France"
+        },
+        "knowsAbout": [
+          "simulation médicale",
+          "mannequin de simulation médicale",
+          "mannequin haute fidélité",
+          "simulateur procédural",
+          "simulateur d'échographie",
+          "matériel pédagogique IFSI",
+          "équipement de centre de simulation"
+        ],
+        "brand": [
+          { "@type": "Brand", "name": "Gaumard" },
+          { "@type": "Brand", "name": "Limbs & Things" },
+          { "@type": "Brand", "name": "Adam Rouilly" },
+          { "@type": "Brand", "name": "Nasco" },
+          { "@type": "Brand", "name": "Simulaids" },
+          { "@type": "Brand", "name": "BT Inc" },
+          { "@type": "Brand", "name": "Arler Zimmer" },
+          { "@type": "Brand", "name": "Holtex" },
+          { "@type": "Brand", "name": "Laparo Medical Simulators" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/medicalem",
+          "https://www.facebook.com/medicalem",
+          "https://vimeo.com/medicalem"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+33 1 39 16 71 90",
+          "contactType": "sales",
+          "areaServed": "FR",
+          "availableLanguage": "French"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.medicalem.com/#website",
+        "url": "https://www.medicalem.com/",
+        "name": "Medicalem",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://www.medicalem.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.medicalem.com/recherche?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.medicalem.com/#webpage",
+        "url": "https://www.medicalem.com/",
+        "name": "Simulateur médical et mannequin de simulation | Medicalem",
+        "description": "Medicalem, distributeur français de simulateurs et mannequins médicaux : 1500 références, conseil expert, SAV interne, leasing, achat via Resah. Devis rapide.",
+        "inLanguage": "fr-FR",
+        "isPartOf": { "@id": "https://www.medicalem.com/#website" },
+        "about": { "@id": "https://www.medicalem.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.medicalem.com/#nouveautes",
+        "name": "Nouveautés simulateurs et mannequins médicaux Medicalem",
+        "itemListOrder": "https://schema.org/ItemListUnordered",
+        "numberOfItems": 4,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "ACTB, mannequin ALS-RCP",
+              "url": "https://www.medicalem.com/produits/actb-mannequin-als-rcp",
+              "image": "https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=800&h=600&q=80",
+              "brand": { "@type": "Brand", "name": "BT Inc" },
+              "description": "Mannequin adulte de réanimation pour l'entraînement à la RCP et aux gestes de réanimation avancée (ALS), destiné aux services d'urgence, aux IFSI et aux centres de simulation.",
+              "category": "Mannequin de réanimation RCP",
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "priceCurrency": "EUR",
+                "url": "https://www.medicalem.com/produits/actb-mannequin-als-rcp",
+                "seller": { "@id": "https://www.medicalem.com/#organization" }
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "TERi, mannequin gériatrique",
+              "url": "https://www.medicalem.com/produits/teri-mannequin-geriatrique",
+              "image": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&h=600&q=80",
+              "brand": { "@type": "Brand", "name": "Nasco" },
+              "description": "Mannequin gériatrique de soins pour former à la prise en charge de la personne âgée : soins d'hygiène, mobilisation, sondages et communication avec le patient.",
+              "category": "Mannequin gériatrique",
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "priceCurrency": "EUR",
+                "url": "https://www.medicalem.com/produits/teri-mannequin-geriatrique",
+                "seller": { "@id": "https://www.medicalem.com/#organization" }
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Product",
+              "name": "SkillQube, simulateur multifonction",
+              "url": "https://www.medicalem.com/produits/skillqube-simulateur-multifonction",
+              "image": "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&h=600&q=80",
+              "brand": { "@type": "Brand", "name": "SkillQube" },
+              "description": "Système de simulation multifonction associant moniteur patient simulé et pilotage de scénarios, pour animer des mises en situation avec un mannequin ou un patient standardisé.",
+              "category": "Outil numérique de simulation",
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "priceCurrency": "EUR",
+                "url": "https://www.medicalem.com/produits/skillqube-simulateur-multifonction",
+                "seller": { "@id": "https://www.medicalem.com/#organization" }
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Product",
+              "name": "ALEX, mannequin de communication patient avec IA",
+              "url": "https://www.medicalem.com/produits/alex-mannequin-communication-patient-ia",
+              "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&h=600&q=80",
+              "brand": { "@type": "Brand", "name": "PCS" },
+              "description": "Mannequin de communication patient doté d'une intelligence artificielle conversationnelle : il répond aux questions des apprenants pour travailler l'anamnèse et la relation soignant-soigné.",
+              "category": "Mannequin haute fidélité",
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "priceCurrency": "EUR",
+                "url": "https://www.medicalem.com/produits/alex-mannequin-communication-patient-ia",
+                "seller": { "@id": "https://www.medicalem.com/#organization" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.medicalem.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel mannequin de simulation choisir pour un IFSI ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pour un IFSI, le choix dépend des compétences à enseigner. Un mannequin de soins infirmiers couvre la toilette, les injections, les sondages et les pansements. Un mannequin de réanimation RCP sert aux gestes d'urgence. Un mannequin haute fidélité permet de travailler le raisonnement clinique en scénario. Medicalem, qui équipe chaque année 75 % des IFSI, vous aide à composer un parc cohérent avec vos référentiels et votre budget."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment financer l'équipement d'un centre de simulation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Medicalem propose une offre de leasing dédiée au matériel de simulation médicale. Le leasing lisse l'investissement sur plusieurs années, préserve la trésorerie et peut intégrer la maintenance. Il s'ajoute aux financements classiques, comme les budgets d'investissement, les appels à projets régionaux et les achats groupés. Nos conseillers étudient avec vous la formule la plus adaptée à votre établissement et à la durée d'usage prévue des équipements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on acheter du matériel de simulation via une centrale d'achat publique ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Medicalem est référencé à la centrale d'achat Resah, qui accompagne les établissements publics de santé et médico-sociaux. Passer par Resah permet de commander des simulateurs et mannequins médicaux sans lancer votre propre procédure de marché, tout en respectant le code de la commande publique. Les acheteurs publics gagnent du temps et sécurisent juridiquement leur achat. Nous vous indiquons la marche à suivre sur simple demande."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qui assure la maintenance des mannequins haute fidélité en France ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Medicalem assure en interne le SAV et la maintenance des simulateurs qu'il distribue. Ses techniciens ont été formés aux États-Unis chez Gaumard, fabricant de mannequins haute fidélité. Cette expertise interne limite les immobilisations, car le diagnostic et la réparation sont réalisés par une équipe qui connaît le matériel. Des contrats de maintenance préventive peuvent être proposés pour garder vos mannequins opérationnels toute l'année."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre un mannequin haute fidélité et un simulateur procédural ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un mannequin haute fidélité est un mannequin électronique complet qui reproduit des signes vitaux, des réponses physiologiques et des scénarios cliniques pilotés par un formateur. Il sert à entraîner le raisonnement et le travail en équipe. Un simulateur procédural est un modèle centré sur un geste précis, par exemple une ponction, une intubation ou une suture. Il permet de répéter la technique jusqu'à la maîtriser. Les deux sont complémentaires dans un centre de simulation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les délais de livraison et d'installation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les délais varient selon le produit et sa disponibilité chez le fabricant. Les consommables et modèles anatomiques courants sont généralement expédiés rapidement depuis notre site de Saint-Cyr-l'École. Les mannequins haute fidélité peuvent nécessiter un délai de fabrication et une installation avec prise en main sur place par nos techniciens. Un délai précis vous est communiqué sur chaque devis, avec une date d'installation planifiée avec votre équipe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Medicalem reprend-il les anciens mannequins et simulateurs ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Dans le cadre de sa politique RSE et de la réglementation DEEE, Medicalem organise la reprise des matériels usagés lors du renouvellement de votre parc. Les équipements électroniques en fin de vie sont orientés vers les filières de traitement agréées. Cette démarche s'inscrit dans l'engagement d'entreprise à mission de Medicalem. Demandez les conditions de reprise lors de votre devis."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles marques de simulateurs médicaux distribue Medicalem ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Medicalem distribue en France les simulateurs et mannequins de fabricants reconnus : Gaumard, Limbs & Things, Adam Rouilly, Nasco, Simulaids, BT Inc, Arler Zimmer, Holtex et Laparo Medical Simulators. Le catalogue compte plus de 1500 références, des mannequins haute fidélité aux modèles anatomiques et kits de maquillage de blessures. Ce choix multimarque permet de recommander le matériel le plus adapté à chaque besoin pédagogique, sans exclusivité imposée."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-white text-slate-700 font-sans antialiased">
+
+  <!-- Lien d'évitement (accessibilité clavier) -->
+  <a href="#contenu" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-brand-700 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu principal</a>
+
+  <!-- ============================================================
+       1. HEADER STICKY
+       Logo, navigation avec méga-menu, recherche produits,
+       "Ma cotation", CTA devis, téléphone.
+       ============================================================ -->
+  <header id="header" class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 transition-shadow">
+
+    <!-- Barre supérieure (desktop) : téléphone et réassurance -->
+    <div class="hidden lg:block bg-brand-800 text-white text-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+        <p class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4" aria-hidden="true"></i>
+          Distributeur français de simulation médicale, basé à Saint-Cyr-l'École (78)
+        </p>
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4" aria-hidden="true"></i> Référencé centrale d'achat Resah</span>
+          <a href="tel:+33139167190" class="flex items-center gap-2 font-semibold hover:text-brand-200">
+            <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i> 01 39 16 71 90
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barre principale -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-[72px] flex items-center justify-between gap-4">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center shrink-0" aria-label="Medicalem, retour à l'accueil">
+          <img src="https://www.medicalem.com/wp-content/uploads/2021/04/Logo-Medicalem.png" alt="Medicalem, distributeur de simulateurs et mannequins médicaux" width="180" height="48" class="h-10 w-auto" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-2xl font-extrabold text-brand-700 tracking-tight',textContent:'medicalem'}))">
+        </a>
+
+        <!-- Navigation principale (desktop) -->
+        <nav class="hidden xl:flex items-center gap-1" aria-label="Navigation principale">
+
+          <!-- Produits : méga-menu -->
+          <div class="has-mega relative" data-open="false">
+            <button type="button" class="mega-trigger flex items-center gap-1 px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50" aria-expanded="false" aria-controls="mega-produits" aria-haspopup="true">
+              Produits <i data-lucide="chevron-down" class="w-4 h-4" aria-hidden="true"></i>
+            </button>
+            <div id="mega-produits" class="mega absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[920px] bg-white rounded-2xl shadow-card border border-slate-100 p-8 grid grid-cols-3 gap-8">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">Par univers</p>
+                <ul class="space-y-1.5 text-[15px]">
+                  <li><a href="/univers/lycees-professionnels-prehospitalier" class="block py-1 hover:text-brand-600">Lycées professionnels et préhospitalier</a></li>
+                  <li><a href="/univers/hopitaux-universites" class="block py-1 hover:text-brand-600">Hôpitaux et universités</a></li>
+                  <li><a href="/univers/urgences" class="block py-1 hover:text-brand-600">Urgences</a></li>
+                  <li><a href="/univers/gestion-de-crise" class="block py-1 hover:text-brand-600">Gestion de crise</a></li>
+                  <li><a href="/univers/militaires" class="block py-1 hover:text-brand-600">Militaires</a></li>
+                  <li><a href="/univers/veterinaire" class="block py-1 hover:text-brand-600">Vétérinaire</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">Par type de produit</p>
+                <ul class="space-y-1.5 text-[15px]">
+                  <li><a href="/gammes/mannequins-haute-fidelite" class="block py-1 hover:text-brand-600">Mannequins électroniques haute fidélité</a></li>
+                  <li><a href="/gammes/simulateurs-proceduraux" class="block py-1 hover:text-brand-600">Simulateurs procéduraux</a></li>
+                  <li><a href="/gammes/simulateurs-echogenes" class="block py-1 hover:text-brand-600">Simulateurs échogènes</a></li>
+                  <li><a href="/gammes/outils-numeriques" class="block py-1 hover:text-brand-600">Outils numériques</a></li>
+                  <li><a href="/gammes/anatomie" class="block py-1 hover:text-brand-600">Anatomie</a></li>
+                  <li><a href="/gammes/kits-de-blessures" class="block py-1 hover:text-brand-600">Kits de blessures et maquillage</a></li>
+                  <li><a href="/gammes/mannequins-de-soins" class="block py-1 hover:text-brand-600">Mannequins de soins infirmiers</a></li>
+                  <li><a href="/gammes/mannequins-rcp" class="block py-1 hover:text-brand-600">Mannequins RCP et secourisme</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-3">Par domaine clinique</p>
+                <ul class="space-y-1.5 text-[15px] columns-2">
+                  <li><a href="/domaines/cardiologie" class="block py-1 hover:text-brand-600">Cardiologie</a></li>
+                  <li><a href="/domaines/pediatrie" class="block py-1 hover:text-brand-600">Pédiatrie</a></li>
+                  <li><a href="/domaines/obstetrique" class="block py-1 hover:text-brand-600">Obstétrique</a></li>
+                  <li><a href="/domaines/urgences" class="block py-1 hover:text-brand-600">Urgences</a></li>
+                  <li><a href="/domaines/echographie" class="block py-1 hover:text-brand-600">Échographie</a></li>
+                  <li><a href="/domaines/anesthesie-reanimation" class="block py-1 hover:text-brand-600">Anesthésie</a></li>
+                  <li><a href="/domaines/chirurgie" class="block py-1 hover:text-brand-600">Chirurgie</a></li>
+                  <li><a href="/domaines/soins-infirmiers" class="block py-1 hover:text-brand-600">Soins infirmiers</a></li>
+                  <li><a href="/domaines/geriatrie" class="block py-1 hover:text-brand-600">Gériatrie</a></li>
+                  <li><a href="/domaines/neonatologie" class="block py-1 hover:text-brand-600">Néonatologie</a></li>
+                </ul>
+                <a href="/produits" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700">
+                  Voir tout le catalogue de simulateurs <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/notre-expertise" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Notre expertise</a>
+          <a href="/sav-maintenance" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">SAV et maintenance</a>
+          <a href="/actualites" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Actualités</a>
+          <a href="/agenda" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Agenda</a>
+          <a href="/contact" class="px-3 py-2 rounded-lg text-[15px] font-semibold text-slate-800 hover:text-brand-600 hover:bg-brand-50">Contact</a>
+        </nav>
+
+        <!-- Recherche produits (desktop) -->
+        <form role="search" action="/recherche" method="get" class="hidden lg:flex items-center relative">
+          <label for="recherche-produits" class="sr-only">Rechercher un simulateur ou un mannequin</label>
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 text-slate-400 pointer-events-none" aria-hidden="true"></i>
+          <input id="recherche-produits" name="q" type="search" placeholder="Rechercher un produit" class="w-44 xl:w-52 h-10 pl-9 pr-3 rounded-full border border-slate-200 bg-surface text-sm focus:w-64 transition-all focus:border-brand-400 focus:bg-white">
+        </form>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-2">
+          <a href="/ma-cotation" class="hidden md:inline-flex items-center gap-2 h-10 px-3 rounded-full border border-slate-200 text-sm font-semibold text-slate-800 hover:border-brand-400 hover:text-brand-600" aria-label="Ma cotation, voir les produits sélectionnés">
+            <i data-lucide="clipboard-list" class="w-4 h-4" aria-hidden="true"></i>
+            <span>Ma cotation</span>
+            <span id="cotation-count" class="min-w-[1.25rem] h-5 px-1 inline-flex items-center justify-center rounded-full bg-brand-600 text-white text-xs font-bold">0</span>
+          </a>
+          <a href="/demande-de-devis" class="inline-flex items-center gap-2 h-10 px-4 rounded-full bg-accent-600 hover:bg-accent-700 text-white text-sm font-bold shadow-soft transition-colors">
+            <i data-lucide="file-text" class="w-4 h-4" aria-hidden="true"></i>
+            <span class="hidden sm:inline">Demander un devis</span><span class="sm:hidden">Devis</span>
+          </a>
+          <!-- Burger (mobile et tablette) -->
+          <button id="burger" type="button" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-slate-200 text-slate-800 hover:border-brand-400" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+            <i data-lucide="menu" class="w-5 h-5" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu mobile (tiroir) -->
+    <div id="menu-mobile" class="xl:hidden hidden border-t border-slate-100 bg-white max-h-[calc(100vh-72px)] overflow-y-auto">
+      <nav class="px-4 py-4 space-y-1" aria-label="Navigation mobile">
+        <form role="search" action="/recherche" method="get" class="relative mb-3 lg:hidden">
+          <label for="recherche-produits-mobile" class="sr-only">Rechercher un simulateur ou un mannequin</label>
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" aria-hidden="true"></i>
+          <input id="recherche-produits-mobile" name="q" type="search" placeholder="Rechercher un produit" class="w-full h-11 pl-9 pr-3 rounded-xl border border-slate-200 bg-surface text-sm focus:border-brand-400 focus:bg-white">
+        </form>
+
+        <details class="group rounded-xl">
+          <summary class="flex items-center justify-between px-3 py-3 font-semibold text-slate-800 cursor-pointer rounded-xl hover:bg-brand-50">
+            Produits <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180" aria-hidden="true"></i>
+          </summary>
+          <div class="px-3 pb-3 grid sm:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-2">Par univers</p>
+              <ul class="space-y-1">
+                <li><a href="/univers/lycees-professionnels-prehospitalier" class="block py-1">Lycées professionnels et préhospitalier</a></li>
+                <li><a href="/univers/hopitaux-universites" class="block py-1">Hôpitaux et universités</a></li>
+                <li><a href="/univers/urgences" class="block py-1">Urgences</a></li>
+                <li><a href="/univers/gestion-de-crise" class="block py-1">Gestion de crise</a></li>
+                <li><a href="/univers/militaires" class="block py-1">Militaires</a></li>
+                <li><a href="/univers/veterinaire" class="block py-1">Vétérinaire</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-2">Par type de produit</p>
+              <ul class="space-y-1">
+                <li><a href="/gammes/mannequins-haute-fidelite" class="block py-1">Mannequins haute fidélité</a></li>
+                <li><a href="/gammes/simulateurs-proceduraux" class="block py-1">Simulateurs procéduraux</a></li>
+                <li><a href="/gammes/simulateurs-echogenes" class="block py-1">Simulateurs échogènes</a></li>
+                <li><a href="/gammes/outils-numeriques" class="block py-1">Outils numériques</a></li>
+                <li><a href="/gammes/anatomie" class="block py-1">Anatomie</a></li>
+                <li><a href="/gammes/kits-de-blessures" class="block py-1">Kits de blessures</a></li>
+                <li><a href="/gammes/mannequins-de-soins" class="block py-1">Mannequins de soins infirmiers</a></li>
+                <li><a href="/gammes/mannequins-rcp" class="block py-1">Mannequins RCP et secourisme</a></li>
+              </ul>
+            </div>
+            <div class="sm:col-span-2">
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-600 mb-2">Par domaine clinique</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/domaines/cardiologie" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Cardiologie</a>
+                <a href="/domaines/pediatrie" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Pédiatrie</a>
+                <a href="/domaines/obstetrique" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Obstétrique</a>
+                <a href="/domaines/urgences" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Urgences</a>
+                <a href="/domaines/echographie" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Échographie</a>
+                <a href="/domaines/anesthesie-reanimation" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Anesthésie</a>
+                <a href="/domaines/chirurgie" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Chirurgie</a>
+                <a href="/domaines/soins-infirmiers" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Soins infirmiers</a>
+                <a href="/domaines/geriatrie" class="px-3 py-1 rounded-full bg-surface border border-slate-200">Gériatrie</a>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <a href="/notre-expertise" class="block px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">Notre expertise</a>
+        <a href="/sav-maintenance" class="block px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">SAV et maintenance</a>
+        <a href="/actualites" class="block px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">Actualités</a>
+        <a href="/agenda" class="block px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">Agenda</a>
+        <a href="/contact" class="block px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">Contact</a>
+        <a href="/ma-cotation" class="flex md:hidden items-center gap-2 px-3 py-3 font-semibold text-slate-800 rounded-xl hover:bg-brand-50">
+          <i data-lucide="clipboard-list" class="w-4 h-4" aria-hidden="true"></i> Ma cotation
+        </a>
+        <a href="tel:+33139167190" class="flex items-center gap-2 px-3 py-3 font-semibold text-brand-600">
+          <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i> 01 39 16 71 90
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============================================================
+         2. HERO
+         Promesse orientée bénéfice, H1 unique avec la requête
+         principale, deux CTA, visuel fort, bandeau de réassurance.
+         ============================================================ -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white" aria-labelledby="hero-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+        <div class="lg:col-span-6">
+          <p class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-brand-100 text-brand-700 text-sm font-semibold shadow-soft">
+            <i data-lucide="heart-pulse" class="w-4 h-4 text-accent-600" aria-hidden="true"></i>
+            Distributeur français de matériel de simulation en santé
+          </p>
+          <h1 id="hero-titre" class="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08] font-extrabold tracking-tight text-brand-900">
+            Simulateurs médicaux et mannequins de simulation pour former aux vrais gestes
+          </h1>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+            Medicalem conseille et équipe les IFSI, hôpitaux, universités, services d'urgence et centres de simulation avec plus de 1500 références de simulateurs, de mannequins haute fidélité et de matériel pédagogique. Conseil d'experts, SAV en interne, leasing et achat via Resah.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-bold shadow-soft transition-colors">
+              Demander un conseil <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+            </a>
+            <a href="/produits" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full border-2 border-brand-600 text-brand-700 font-bold hover:bg-brand-50 transition-colors">
+              Explorer le catalogue
+            </a>
+          </div>
+          <p class="mt-6 text-sm text-slate-500 italic">« Parce que la vie est précieuse », notre signature depuis l'origine.</p>
+        </div>
+
+        <!-- Visuel hero : chargé en priorité, pas de lazy loading -->
+        <div class="lg:col-span-6 relative">
+          <figure data-img class="relative rounded-3xl overflow-hidden shadow-card aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&h=900&q=80"
+                 alt="Formateur et étudiants en soins infirmiers s'entraînant à la réanimation sur un mannequin de simulation médicale"
+                 width="1200" height="900" fetchpriority="high" decoding="async"
+                 class="w-full h-full object-cover"
+                 onerror="this.remove()">
+            <figcaption class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur rounded-2xl px-4 py-3 flex items-center gap-3 shadow-soft">
+              <span class="w-10 h-10 rounded-full bg-brand-600 text-white inline-flex items-center justify-center shrink-0"><i data-lucide="wrench" class="w-5 h-5" aria-hidden="true"></i></span>
+              <span class="text-sm text-slate-700"><strong class="text-brand-900">SAV et maintenance en interne</strong>, techniciens formés chez Gaumard aux États-Unis.</span>
+            </figcaption>
+          </figure>
+          <!-- Décor -->
+          <div class="hidden lg:block absolute -z-10 -top-10 -right-10 w-64 h-64 rounded-full bg-brand-100 blur-3xl opacity-70" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Bandeau de réassurance -->
+      <div class="border-t border-brand-100 bg-white">
+        <dl class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="layers" class="w-5 h-5" aria-hidden="true"></i></span>
+            <div><dt class="text-xl font-extrabold text-brand-900 leading-none">+ 1500</dt><dd class="text-sm text-slate-600 mt-1">références de simulateurs et matériels</dd></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="users" class="w-5 h-5" aria-hidden="true"></i></span>
+            <div><dt class="text-xl font-extrabold text-brand-900 leading-none">+ 4000</dt><dd class="text-sm text-slate-600 mt-1">clients formateurs et établissements</dd></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="graduation-cap" class="w-5 h-5" aria-hidden="true"></i></span>
+            <div><dt class="text-xl font-extrabold text-brand-900 leading-none">75 %</dt><dd class="text-sm text-slate-600 mt-1">des IFSI équipés chaque année</dd></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="landmark" class="w-5 h-5" aria-hidden="true"></i></span>
+            <div><dt class="text-xl font-extrabold text-brand-900 leading-none">Resah</dt><dd class="text-sm text-slate-600 mt-1">référencé à la centrale d'achat publique</dd></div>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. MEDICALEM EN BREF
+         Bloc factuel et autonome (qui, quoi, pour qui, où),
+         rédigé pour être cité tel quel par les IA génératives.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-white" aria-labelledby="bref-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7 reveal">
+          <h2 id="bref-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Medicalem en bref</h2>
+          <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+            Medicalem est un distributeur français de simulateurs et mannequins médicaux, basé à Saint-Cyr-l'École (78), en Île-de-France. L'entreprise équipe chaque année 75 % des IFSI et 50 % des centres d'enseignement en santé avec plus de 1500 références issues de fabricants comme Gaumard, Limbs & Things, Nasco ou Simulaids.
+          </p>
+          <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+            Entreprise à mission, Medicalem assure elle-même le conseil, l'installation, le SAV et la maintenance de ses matériels de simulation en santé. Elle propose un financement en leasing et un achat simplifié pour les établissements publics via la centrale d'achat Resah.
+          </p>
+          <a href="/notre-expertise" class="mt-6 inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700">
+            Découvrir notre expertise en simulation médicale <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+          </a>
+        </div>
+        <!-- Fiche d'identité (données clés lisibles par les IA) -->
+        <aside class="lg:col-span-5 reveal" aria-label="Fiche d'identité Medicalem">
+          <dl class="bg-surface rounded-3xl p-6 sm:p-8 grid sm:grid-cols-2 gap-5 text-sm">
+            <div><dt class="font-bold text-brand-900">Activité</dt><dd class="text-slate-600 mt-1">Distributeur de simulateurs et mannequins médicaux pour la formation en santé</dd></div>
+            <div><dt class="font-bold text-brand-900">Siège</dt><dd class="text-slate-600 mt-1">6 bd Georges Marie Guynemer, 78210 Saint-Cyr-l'École</dd></div>
+            <div><dt class="font-bold text-brand-900">Clients</dt><dd class="text-slate-600 mt-1">Plus de 4000 établissements et formateurs en France</dd></div>
+            <div><dt class="font-bold text-brand-900">Catalogue</dt><dd class="text-slate-600 mt-1">Plus de 1500 références, 9 marques partenaires</dd></div>
+            <div><dt class="font-bold text-brand-900">Achat public</dt><dd class="text-slate-600 mt-1">Référencé à la centrale d'achat Resah</dd></div>
+            <div><dt class="font-bold text-brand-900">Statut</dt><dd class="text-slate-600 mt-1">Entreprise à mission, politique RSE et reprise DEEE</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. VOUS ÊTES... (6 univers)
+         Cartes cliquables : icône, bénéfice, lien descriptif.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-surface" aria-labelledby="univers-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl reveal">
+          <h2 id="univers-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Vous êtes...</h2>
+          <p class="mt-4 text-lg text-slate-600">Medicalem accompagne six univers de formation en santé, du lycée professionnel au centre de simulation hospitalier. Choisissez le vôtre pour accéder aux simulateurs adaptés à vos apprenants.</p>
+        </div>
+        <ul class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Carte univers -->
+          <li class="reveal">
+            <a href="/univers/lycees-professionnels-prehospitalier" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="graduation-cap" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Lycées professionnels et préhospitalier</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Initier aux gestes de premiers secours et aux soins de base avec des mannequins robustes et simples à prendre en main.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Voir les solutions pour les lycées professionnels <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="/univers/hopitaux-universites" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="building-2" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Hôpitaux et universités</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Équiper un centre de simulation complet, du mannequin haute fidélité aux outils numériques de débriefing.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Équiper un centre de simulation hospitalier <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="/univers/urgences" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="ambulance" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Urgences</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Entraîner les équipes SAMU, SMUR et services d'urgence aux situations critiques, en conditions réalistes.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Découvrir les simulateurs pour les urgences <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="/univers/gestion-de-crise" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="shield-alert" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Gestion de crise</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Préparer les équipes aux afflux massifs de victimes avec des kits de blessures et des mannequins de triage.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Voir le matériel de gestion de crise <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="/univers/militaires" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="shield" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Militaires</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Former au sauvetage au combat et à la médecine tactique avec des simulateurs conçus pour le terrain.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Découvrir les simulateurs pour les forces armées <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="/univers/veterinaire" class="group block h-full bg-white rounded-2xl p-6 shadow-soft border border-transparent hover:border-brand-200 hover:-translate-y-1 hover:shadow-card transition-all">
+              <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors"><i data-lucide="paw-print" class="w-6 h-6" aria-hidden="true"></i></span>
+              <h3 class="mt-4 text-lg font-bold text-brand-900">Vétérinaire</h3>
+              <p class="mt-2 text-slate-600 text-[15px]">Apprendre les gestes techniques sur des modèles animaux de simulation, sans recourir à l'animal vivant.</p>
+              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Voir les simulateurs vétérinaires <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. NOS GAMMES
+         Grille des types de produits avec liens descriptifs.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-white" aria-labelledby="gammes-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+          <div class="max-w-3xl">
+            <h2 id="gammes-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Nos gammes de simulateurs et de matériel de simulation en santé</h2>
+            <p class="mt-4 text-lg text-slate-600">Le catalogue Medicalem regroupe plus de 1500 références organisées en huit grandes familles, pour couvrir tous les niveaux de formation, de l'initiation au secourisme à la simulation haute fidélité.</p>
+          </div>
+          <a href="/produits" class="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700 shrink-0">
+            Voir tout le catalogue <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <ul class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <li class="reveal"><a href="/gammes/mannequins-haute-fidelite" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="heart-pulse" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Mannequins électroniques haute fidélité</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Patients simulés adultes, pédiatriques et nouveau-nés pilotés par logiciel pour des scénarios cliniques complets.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les mannequins haute fidélité</span></a></li>
+          <li class="reveal"><a href="/gammes/simulateurs-proceduraux" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="syringe" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Simulateurs procéduraux</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Ponction, intubation, sondage, suture : un geste, un simulateur, des répétitions illimitées.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les simulateurs procéduraux</span></a></li>
+          <li class="reveal"><a href="/gammes/simulateurs-echogenes" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="scan-line" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Simulateurs échogènes</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Fantômes et modèles compatibles échographie pour apprendre le repérage et les gestes échoguidés.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les simulateurs d'échographie</span></a></li>
+          <li class="reveal"><a href="/gammes/outils-numeriques" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="monitor" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Outils numériques</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Moniteurs patient simulés, logiciels de scénarios, réalité virtuelle et solutions de débriefing.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les outils numériques</span></a></li>
+          <li class="reveal"><a href="/gammes/anatomie" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="bone" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Anatomie</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Squelettes, modèles anatomiques et planches pour l'enseignement des sciences fondamentales.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les modèles anatomiques</span></a></li>
+          <li class="reveal"><a href="/gammes/kits-de-blessures" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="bandage" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Kits de blessures et maquillage</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Moulages, plaies et kits de maquillage pour la gestion de crise et le triage de victimes.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les kits de blessures</span></a></li>
+          <li class="reveal"><a href="/gammes/mannequins-de-soins" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="stethoscope" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Mannequins de soins infirmiers</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Mannequins de soins complets pour la toilette, les injections, les sondages et les pansements, matériel pédagogique de référence des IFSI.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les mannequins de soins</span></a></li>
+          <li class="reveal"><a href="/gammes/mannequins-rcp" class="group flex flex-col h-full rounded-2xl border border-slate-100 bg-surface p-5 sm:p-6 hover:bg-white hover:border-brand-200 hover:shadow-card transition-all">
+            <i data-lucide="activity" class="w-7 h-7 text-brand-600" aria-hidden="true"></i>
+            <h3 class="mt-4 font-bold text-brand-900">Mannequins RCP et secourisme</h3>
+            <p class="mt-2 text-sm text-slate-600 flex-1">Mannequins de réanimation RCP adultes, enfants et nourrissons, avec ou sans retour de performance.</p>
+            <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:underline">Voir les mannequins de réanimation RCP</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. NOUVEAUTÉS
+         4 produits phares avec bouton "Ajouter à ma cotation".
+         Les visuels sont des images d'illustration à remplacer
+         par les photos produits officielles.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-surface" aria-labelledby="nouveautes-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+          <div class="max-w-3xl">
+            <h2 id="nouveautes-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Nouveautés : quatre simulateurs à découvrir</h2>
+            <p class="mt-4 text-lg text-slate-600">Les dernières références entrées au catalogue Medicalem, du mannequin de réanimation RCP au mannequin de communication patient doté d'une IA. Ajoutez-les à votre cotation pour recevoir un devis groupé.</p>
+          </div>
+          <a href="/produits/nouveautes" class="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700 shrink-0">
+            Toutes les nouveautés <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <ul class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Produit 1 -->
+          <li class="reveal">
+            <article class="flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
+              <div data-img class="relative aspect-[4/3] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=800&h=600&q=80" alt="ACTB, mannequin de réanimation RCP et ALS adulte, visuel d'illustration" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-accent-600 text-white text-xs font-bold">Nouveau</span>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600">BT Inc</p>
+                <h3 class="mt-1 text-lg font-bold text-brand-900"><a href="/produits/actb-mannequin-als-rcp" class="hover:text-brand-600">ACTB, mannequin ALS-RCP</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Mannequin adulte de réanimation pour l'entraînement à la RCP et aux gestes de réanimation avancée (ALS), destiné aux services d'urgence, aux IFSI et aux centres de simulation.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="btn-cotation flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold transition-colors" data-produit="ACTB, mannequin ALS-RCP" aria-label="Ajouter ACTB, mannequin ALS-RCP à ma cotation">
+                    <i data-lucide="plus" class="w-4 h-4" aria-hidden="true"></i> Ajouter à ma cotation
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <!-- Produit 2 -->
+          <li class="reveal">
+            <article class="flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
+              <div data-img class="relative aspect-[4/3] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&h=600&q=80" alt="TERi, mannequin gériatrique de soins pour la formation à la prise en charge des personnes âgées, visuel d'illustration" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-accent-600 text-white text-xs font-bold">Nouveau</span>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600">Nasco</p>
+                <h3 class="mt-1 text-lg font-bold text-brand-900"><a href="/produits/teri-mannequin-geriatrique" class="hover:text-brand-600">TERi, mannequin gériatrique</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Mannequin gériatrique de soins pour former à la prise en charge de la personne âgée : soins d'hygiène, mobilisation, sondages et communication avec le patient.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="btn-cotation flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold transition-colors" data-produit="TERi, mannequin gériatrique" aria-label="Ajouter TERi, mannequin gériatrique à ma cotation">
+                    <i data-lucide="plus" class="w-4 h-4" aria-hidden="true"></i> Ajouter à ma cotation
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <!-- Produit 3 -->
+          <li class="reveal">
+            <article class="flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
+              <div data-img class="relative aspect-[4/3] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&h=600&q=80" alt="SkillQube, simulateur multifonction avec moniteur patient simulé pour centre de simulation, visuel d'illustration" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-accent-600 text-white text-xs font-bold">Nouveau</span>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600">SkillQube</p>
+                <h3 class="mt-1 text-lg font-bold text-brand-900"><a href="/produits/skillqube-simulateur-multifonction" class="hover:text-brand-600">SkillQube, simulateur multifonction</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Système de simulation multifonction associant moniteur patient simulé et pilotage de scénarios, pour animer des mises en situation avec un mannequin ou un patient standardisé.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="btn-cotation flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold transition-colors" data-produit="SkillQube, simulateur multifonction" aria-label="Ajouter SkillQube, simulateur multifonction à ma cotation">
+                    <i data-lucide="plus" class="w-4 h-4" aria-hidden="true"></i> Ajouter à ma cotation
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <!-- Produit 4 -->
+          <li class="reveal">
+            <article class="flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
+              <div data-img class="relative aspect-[4/3] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&h=600&q=80" alt="ALEX, mannequin de communication patient avec intelligence artificielle pour l'entraînement à l'anamnèse, visuel d'illustration" width="800" height="600" loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-accent-600 text-white text-xs font-bold">Nouveau</span>
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-600">PCS</p>
+                <h3 class="mt-1 text-lg font-bold text-brand-900"><a href="/produits/alex-mannequin-communication-patient-ia" class="hover:text-brand-600">ALEX, mannequin de communication patient avec IA</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Mannequin de communication patient doté d'une intelligence artificielle conversationnelle : il répond aux questions des apprenants pour travailler l'anamnèse et la relation soignant-soigné.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="btn-cotation flex-1 inline-flex items-center justify-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold transition-colors" data-produit="ALEX, mannequin de communication patient avec IA" aria-label="Ajouter ALEX, mannequin de communication patient avec IA à ma cotation">
+                    <i data-lucide="plus" class="w-4 h-4" aria-hidden="true"></i> Ajouter à ma cotation
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <!-- Zone d'annonce pour lecteurs d'écran (ajout à la cotation) -->
+        <p id="cotation-live" class="sr-only" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. POURQUOI MEDICALEM
+         4 piliers + mot de la dirigeante (signaux E-E-A-T).
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-white" aria-labelledby="pourquoi-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl reveal">
+          <h2 id="pourquoi-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Pourquoi choisir Medicalem comme distributeur de simulation médicale</h2>
+          <p class="mt-4 text-lg text-slate-600">Choisir Medicalem, c'est sécuriser l'achat d'un simulateur médical sur toute sa durée de vie : le bon conseil au départ, un financement adapté, un achat public simplifié et une maintenance assurée en France par nos propres techniciens.</p>
+        </div>
+
+        <ul class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <li class="reveal rounded-2xl p-6 bg-brand-700 text-white">
+            <span class="w-12 h-12 rounded-xl bg-white/10 inline-flex items-center justify-center"><i data-lucide="message-circle" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 text-lg font-bold">Conseil d'experts</h3>
+            <p class="mt-2 text-brand-100 text-[15px]">Nos conseillers connaissent les référentiels de formation et vous aident à choisir le simulateur médical adapté à vos objectifs pédagogiques et à votre budget.</p>
+          </li>
+          <li class="reveal rounded-2xl p-6 bg-surface border border-slate-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center"><i data-lucide="wrench" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 text-lg font-bold text-brand-900">SAV et maintenance en interne</h3>
+            <p class="mt-2 text-slate-600 text-[15px]">Nos techniciens, formés aux États-Unis chez Gaumard, diagnostiquent, réparent et entretiennent vos mannequins haute fidélité depuis la France.</p>
+            <a href="/sav-maintenance" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">En savoir plus sur le SAV <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+          </li>
+          <li class="reveal rounded-2xl p-6 bg-surface border border-slate-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center"><i data-lucide="piggy-bank" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 text-lg font-bold text-brand-900">Leasing</h3>
+            <p class="mt-2 text-slate-600 text-[15px]">Une offre de leasing pour financer votre matériel de simulation médicale sans alourdir votre budget d'investissement.</p>
+            <a href="/leasing-simulation-medicale" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Découvrir le leasing <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+          </li>
+          <li class="reveal rounded-2xl p-6 bg-surface border border-slate-100">
+            <span class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center"><i data-lucide="landmark" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 text-lg font-bold text-brand-900">Achat simplifié via Resah</h3>
+            <p class="mt-2 text-slate-600 text-[15px]">Medicalem est référencé à la centrale d'achat Resah : les acheteurs publics commandent sans lancer de procédure de marché supplémentaire.</p>
+            <a href="/achat-public-resah" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Acheter via Resah <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+
+        <!-- Mot de la dirigeante : remplacer le nom, la photo et la citation par les éléments validés -->
+        <figure class="mt-12 reveal bg-brand-50 rounded-3xl p-8 lg:p-10 grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-3 flex lg:justify-center">
+            <div data-img class="w-28 h-28 lg:w-36 lg:h-36 rounded-full overflow-hidden shadow-soft ring-4 ring-white">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=300&h=300&q=80" alt="Portrait de la dirigeante de Medicalem" width="300" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.remove()">
+            </div>
+          </div>
+          <blockquote class="lg:col-span-9">
+            <i data-lucide="quote" class="w-8 h-8 text-brand-300" aria-hidden="true"></i>
+            <p class="mt-3 text-xl lg:text-2xl font-semibold text-brand-900 leading-snug">Nous avons choisi de devenir entreprise à mission parce que la simulation sauve des vies, à condition que le matériel soit bien choisi, bien installé et bien entretenu. C'est ce que notre équipe garantit chaque jour auprès de nos clients.</p>
+            <figcaption class="mt-4 text-sm text-slate-600"><span class="font-bold text-brand-900">Prénom Nom</span>, dirigeante de Medicalem</figcaption>
+          </blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. RECHERCHE PAR DOMAINE CLINIQUE
+         Chips filtrables (boutons aria-pressed) + exemples de produits.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-surface" aria-labelledby="domaines-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl reveal">
+          <h2 id="domaines-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Trouver un simulateur par domaine clinique</h2>
+          <p class="mt-4 text-lg text-slate-600">Chaque domaine clinique dispose de simulateurs dédiés, de la cardiologie à l'obstétrique en passant par l'échographie. Filtrez pour repérer en quelques secondes le type de simulateur procédural ou de mannequin adapté à votre enseignement.</p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-2 reveal" role="group" aria-label="Filtrer les simulateurs par domaine clinique">
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="tous" aria-pressed="true">Tous les domaines</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="cardiologie" aria-pressed="false">Cardiologie</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="pediatrie" aria-pressed="false">Pédiatrie</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="obstetrique" aria-pressed="false">Obstétrique</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="urgences" aria-pressed="false">Urgences</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="echographie" aria-pressed="false">Échographie</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="anesthesie" aria-pressed="false">Anesthésie-réanimation</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="chirurgie" aria-pressed="false">Chirurgie</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="soins-infirmiers" aria-pressed="false">Soins infirmiers</button>
+          <button type="button" class="chip px-4 py-2 rounded-full border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:border-brand-400 transition-colors" data-domaine="geriatrie" aria-pressed="false">Gériatrie</button>
+        </div>
+
+        <ul id="liste-domaines" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4" aria-live="polite">
+          <li class="domaine-item" data-domaines="urgences cardiologie"><a href="/domaines/urgences/mannequin-reanimation-rcp-adulte" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="activity" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Mannequin de réanimation RCP adulte</span><span class="block text-xs text-slate-500 mt-0.5">Urgences, cardiologie</span></span></a></li>
+          <li class="domaine-item" data-domaines="cardiologie"><a href="/domaines/cardiologie/simulateur-auscultation" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="stethoscope" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur d'auscultation cardiaque et pulmonaire</span><span class="block text-xs text-slate-500 mt-0.5">Cardiologie</span></span></a></li>
+          <li class="domaine-item" data-domaines="pediatrie urgences"><a href="/domaines/pediatrie/mannequin-pediatrique-haute-fidelite" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="baby" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Mannequin pédiatrique haute fidélité</span><span class="block text-xs text-slate-500 mt-0.5">Pédiatrie, urgences</span></span></a></li>
+          <li class="domaine-item" data-domaines="obstetrique"><a href="/domaines/obstetrique/simulateur-accouchement" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur d'accouchement</span><span class="block text-xs text-slate-500 mt-0.5">Obstétrique</span></span></a></li>
+          <li class="domaine-item" data-domaines="pediatrie obstetrique urgences"><a href="/domaines/neonatologie/mannequin-nouveau-ne-reanimation" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="baby" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Mannequin nouveau-né de réanimation</span><span class="block text-xs text-slate-500 mt-0.5">Néonatologie, obstétrique, urgences</span></span></a></li>
+          <li class="domaine-item" data-domaines="echographie anesthesie"><a href="/domaines/echographie/fantome-ponction-echoguidee" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="scan-line" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Fantôme d'échographie pour ponction échoguidée</span><span class="block text-xs text-slate-500 mt-0.5">Échographie, anesthésie</span></span></a></li>
+          <li class="domaine-item" data-domaines="soins-infirmiers"><a href="/domaines/soins-infirmiers/simulateur-ponction-veineuse" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="syringe" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur de ponction veineuse et de perfusion</span><span class="block text-xs text-slate-500 mt-0.5">Soins infirmiers</span></span></a></li>
+          <li class="domaine-item" data-domaines="anesthesie urgences"><a href="/domaines/anesthesie-reanimation/simulateur-intubation" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="wind" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur d'intubation et de gestion des voies aériennes</span><span class="block text-xs text-slate-500 mt-0.5">Anesthésie, urgences</span></span></a></li>
+          <li class="domaine-item" data-domaines="chirurgie"><a href="/domaines/chirurgie/trainer-laparoscopie" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="scissors" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur d'entraînement à la laparoscopie</span><span class="block text-xs text-slate-500 mt-0.5">Chirurgie</span></span></a></li>
+          <li class="domaine-item" data-domaines="geriatrie soins-infirmiers"><a href="/domaines/geriatrie/mannequin-geriatrique-soins" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="user-round" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Mannequin gériatrique de soins</span><span class="block text-xs text-slate-500 mt-0.5">Gériatrie, soins infirmiers</span></span></a></li>
+          <li class="domaine-item" data-domaines="soins-infirmiers geriatrie"><a href="/domaines/soins-infirmiers/simulateur-sondage-urinaire" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="droplets" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur de sondage urinaire</span><span class="block text-xs text-slate-500 mt-0.5">Soins infirmiers, gériatrie</span></span></a></li>
+          <li class="domaine-item" data-domaines="chirurgie urgences"><a href="/domaines/chirurgie/simulateur-suture" class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-transparent hover:border-brand-200 hover:shadow-soft transition-all"><span class="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 inline-flex items-center justify-center shrink-0"><i data-lucide="bandage" class="w-5 h-5" aria-hidden="true"></i></span><span><span class="block font-semibold text-brand-900">Simulateur de suture</span><span class="block text-xs text-slate-500 mt-0.5">Chirurgie, urgences</span></span></a></li>
+        </ul>
+        <p id="domaines-vide" class="hidden mt-6 text-slate-600">Aucun exemple pour ce domaine sur cette page. <a href="/produits" class="font-semibold text-brand-600 underline">Consultez le catalogue complet</a> ou appelez-nous au 01 39 16 71 90.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. ENGAGEMENT : entreprise à mission, RSE, reprise DEEE
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-brand-800 text-white" aria-labelledby="engagement-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 reveal">
+          <p class="inline-flex items-center gap-2 text-brand-200 text-sm font-semibold uppercase tracking-wider"><i data-lucide="leaf" class="w-4 h-4" aria-hidden="true"></i> Notre engagement</p>
+          <h2 id="engagement-titre" class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Une entreprise à mission engagée pour une simulation plus responsable</h2>
+          <p class="mt-5 text-brand-100 text-lg leading-relaxed">Medicalem est une entreprise à mission. Sa politique RSE couvre la conformité DEEE des équipements électroniques et la reprise des matériels usagés lors du renouvellement de votre parc de simulateurs.</p>
+          <a href="/engagements" class="mt-6 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-white text-brand-800 font-bold hover:bg-brand-50 transition-colors">
+            Lire nos engagements <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+          </a>
+        </div>
+        <ul class="lg:col-span-7 grid sm:grid-cols-3 gap-5">
+          <li class="reveal rounded-2xl bg-white/5 border border-white/10 p-6">
+            <span class="w-12 h-12 rounded-xl bg-white/10 inline-flex items-center justify-center"><i data-lucide="badge-check" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 font-bold text-lg">Entreprise à mission</h3>
+            <p class="mt-2 text-brand-100 text-[15px]">Une raison d'être inscrite dans nos statuts : contribuer à la qualité des soins par une formation en santé mieux équipée.</p>
+          </li>
+          <li class="reveal rounded-2xl bg-white/5 border border-white/10 p-6">
+            <span class="w-12 h-12 rounded-xl bg-white/10 inline-flex items-center justify-center"><i data-lucide="leaf" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 font-bold text-lg">Politique RSE</h3>
+            <p class="mt-2 text-brand-100 text-[15px]">Des pratiques responsables dans nos achats, notre logistique et l'accompagnement de nos clients sur la durée de vie des équipements.</p>
+          </li>
+          <li class="reveal rounded-2xl bg-white/5 border border-white/10 p-6">
+            <span class="w-12 h-12 rounded-xl bg-white/10 inline-flex items-center justify-center"><i data-lucide="recycle" class="w-6 h-6" aria-hidden="true"></i></span>
+            <h3 class="mt-4 font-bold text-lg">Reprise et conformité DEEE</h3>
+            <p class="mt-2 text-brand-100 text-[15px]">Reprise de vos anciens mannequins et simulateurs et orientation vers les filières de traitement agréées.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. PARTENAIRES : bandeau de logos en défilement
+         (placeholders texte stylisés, à remplacer par les logos officiels)
+         ============================================================ -->
+    <section class="py-14 bg-white border-b border-slate-100" aria-labelledby="partenaires-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <h2 id="partenaires-titre" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-900 text-center">Les marques de simulation médicale distribuées par Medicalem</h2>
+        <p class="mt-3 text-center text-slate-600 max-w-3xl mx-auto">Medicalem est partenaire officiel en France de Gaumard, Limbs & Things, Adam Rouilly, Nasco, Simulaids, BT Inc, Arler Zimmer, Holtex et Laparo Medical Simulators.</p>
+      </div>
+      <div class="marquee mt-8 overflow-hidden relative" aria-hidden="true">
+        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div class="marquee-track flex w-max gap-6 px-3">
+          <!-- Série 1 -->
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Gaumard</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Limbs &amp; Things</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Adam Rouilly</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Nasco</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Simulaids</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">BT Inc</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Arler Zimmer</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Holtex</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Laparo Medical Simulators</span>
+          <!-- Série 2 (duplication pour la boucle continue) -->
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Gaumard</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Limbs &amp; Things</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Adam Rouilly</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Nasco</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Simulaids</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">BT Inc</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Arler Zimmer</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Holtex</span>
+          <span class="h-16 px-8 inline-flex items-center rounded-2xl bg-surface border border-slate-100 text-xl font-extrabold tracking-tight text-brand-800">Laparo Medical Simulators</span>
+        </div>
+      </div>
+      <!-- Liste accessible (lue par les lecteurs d'écran et les robots) -->
+      <ul class="sr-only">
+        <li>Gaumard</li><li>Limbs &amp; Things</li><li>Adam Rouilly</li><li>Nasco</li><li>Simulaids</li><li>BT Inc</li><li>Arler Zimmer</li><li>Holtex</li><li>Laparo Medical Simulators</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         11. ACTUALITÉS ET AGENDA
+         3 dernières actualités datées + prochains événements.
+         Contenus éditoriaux d'exemple, à remplacer par les vrais.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-white" aria-labelledby="actus-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+
+        <!-- Actualités -->
+        <div class="lg:col-span-8">
+          <div class="flex items-end justify-between gap-6 reveal">
+            <div>
+              <h2 id="actus-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Actualités et agenda</h2>
+              <p class="mt-3 text-lg text-slate-600">Nouveautés produits, conseils de financement et vie de l'équipe Medicalem.</p>
+            </div>
+            <a href="/actualites" class="hidden sm:inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700 shrink-0">Toutes les actualités <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+          </div>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-5">
+            <article class="reveal group flex flex-col rounded-2xl overflow-hidden bg-surface border border-slate-100 hover:shadow-card transition-shadow">
+              <div data-img class="aspect-[16/10] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=640&h=400&q=80" alt="Formatrice présentant un mannequin de communication patient à des étudiants en santé" width="640" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <time datetime="2026-09-18" class="text-xs font-semibold text-brand-600 uppercase tracking-wider">18 septembre 2026</time>
+                <h3 class="mt-2 font-bold text-brand-900 leading-snug"><a href="/actualites/alex-mannequin-communication-patient-ia" class="hover:text-brand-600">ALEX, le mannequin de communication patient avec IA, arrive au catalogue</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Un patient simulé qui dialogue avec les apprenants pour travailler l'anamnèse et l'annonce.</p>
+              </div>
+            </article>
+            <article class="reveal group flex flex-col rounded-2xl overflow-hidden bg-surface border border-slate-100 hover:shadow-card transition-shadow">
+              <div data-img class="aspect-[16/10] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=640&h=400&q=80" alt="Responsable de centre de simulation étudiant un plan de financement en leasing" width="640" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <time datetime="2026-07-02" class="text-xs font-semibold text-brand-600 uppercase tracking-wider">2 juillet 2026</time>
+                <h3 class="mt-2 font-bold text-brand-900 leading-snug"><a href="/actualites/leasing-financer-centre-de-simulation" class="hover:text-brand-600">Leasing : financer un centre de simulation sans attendre le prochain budget</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Comment le leasing de matériel de simulation lisse l'investissement et intègre la maintenance.</p>
+              </div>
+            </article>
+            <article class="reveal group flex flex-col rounded-2xl overflow-hidden bg-surface border border-slate-100 hover:shadow-card transition-shadow">
+              <div data-img class="aspect-[16/10] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=640&h=400&q=80" alt="Technicien de maintenance intervenant sur un mannequin haute fidélité" width="640" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.remove()">
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <time datetime="2026-05-12" class="text-xs font-semibold text-brand-600 uppercase tracking-wider">12 mai 2026</time>
+                <h3 class="mt-2 font-bold text-brand-900 leading-snug"><a href="/actualites/techniciens-sav-formation-gaumard" class="hover:text-brand-600">SAV : nos techniciens de retour de formation chez Gaumard aux États-Unis</a></h3>
+                <p class="mt-2 text-sm text-slate-600 flex-1">Une maintenance des mannequins haute fidélité assurée en France par une équipe formée par le fabricant.</p>
+              </div>
+            </article>
+          </div>
+          <a href="/actualites" class="sm:hidden mt-6 inline-flex items-center gap-2 font-semibold text-brand-600">Toutes les actualités <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+        </div>
+
+        <!-- Agenda -->
+        <aside class="lg:col-span-4 reveal" aria-labelledby="agenda-titre">
+          <div class="bg-brand-50 rounded-3xl p-6 sm:p-8 h-full">
+            <h3 id="agenda-titre" class="flex items-center gap-2 text-xl font-extrabold text-brand-900"><i data-lucide="calendar" class="w-5 h-5 text-brand-600" aria-hidden="true"></i> Prochains rendez-vous</h3>
+            <ol class="mt-6 space-y-5">
+              <li class="flex gap-4">
+                <time datetime="2026-10-15" class="shrink-0 w-14 h-14 rounded-xl bg-white shadow-soft flex flex-col items-center justify-center leading-none"><span class="text-lg font-extrabold text-brand-900">15</span><span class="text-[11px] font-semibold uppercase text-slate-500 mt-0.5">oct.</span></time>
+                <div>
+                  <h4 class="font-bold text-brand-900 leading-snug"><a href="/agenda/portes-ouvertes-showroom" class="hover:text-brand-600">Portes ouvertes du showroom Medicalem</a></h4>
+                  <p class="text-sm text-slate-600 mt-1">Saint-Cyr-l'École (78). Démonstrations de mannequins haute fidélité et de simulateurs procéduraux.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <time datetime="2026-11-05" class="shrink-0 w-14 h-14 rounded-xl bg-white shadow-soft flex flex-col items-center justify-center leading-none"><span class="text-lg font-extrabold text-brand-900">05</span><span class="text-[11px] font-semibold uppercase text-slate-500 mt-0.5">nov.</span></time>
+                <div>
+                  <h4 class="font-bold text-brand-900 leading-snug"><a href="/agenda/webinaire-choisir-mannequin-haute-fidelite" class="hover:text-brand-600">Webinaire : choisir son mannequin haute fidélité</a></h4>
+                  <p class="text-sm text-slate-600 mt-1">En ligne. Critères de choix, budget, maintenance et financement en leasing.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <time datetime="2026-12" class="shrink-0 w-14 h-14 rounded-xl bg-white shadow-soft flex flex-col items-center justify-center leading-none"><span class="text-lg font-extrabold text-brand-900">déc.</span><span class="text-[11px] font-semibold uppercase text-slate-500 mt-0.5">2026</span></time>
+                <div>
+                  <h4 class="font-bold text-brand-900 leading-snug"><a href="/agenda" class="hover:text-brand-600">Salons et congrès de simulation en santé</a></h4>
+                  <p class="text-sm text-slate-600 mt-1">Retrouvez l'équipe Medicalem sur son stand. Dates et lieux à confirmer.</p>
+                </div>
+              </li>
+            </ol>
+            <a href="/agenda" class="mt-6 inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-700">Voir tout l'agenda <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i></a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. FAQ
+         Questions formulées comme les poserait un utilisateur à une IA.
+         Les textes sont repris à l'identique dans le JSON-LD FAQPage.
+         ============================================================ -->
+    <section class="py-16 lg:py-20 bg-surface" aria-labelledby="faq-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4 reveal">
+          <h2 id="faq-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-900">Questions fréquentes sur les simulateurs et mannequins médicaux</h2>
+          <p class="mt-4 text-lg text-slate-600">Les réponses aux questions que nous posent le plus souvent les responsables pédagogiques, cadres de santé et acheteurs publics.</p>
+          <a href="/contact" class="mt-6 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold transition-colors">Poser une autre question <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="lg:col-span-8 space-y-3" id="faq">
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft" open>
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Quel mannequin de simulation choisir pour un IFSI ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Pour un IFSI, le choix dépend des compétences à enseigner. Un mannequin de soins infirmiers couvre la toilette, les injections, les sondages et les pansements. Un mannequin de réanimation RCP sert aux gestes d'urgence. Un mannequin haute fidélité permet de travailler le raisonnement clinique en scénario. Medicalem, qui équipe chaque année 75 % des IFSI, vous aide à composer un parc cohérent avec vos référentiels et votre budget.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Comment financer l'équipement d'un centre de simulation ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Medicalem propose une offre de leasing dédiée au matériel de simulation médicale. Le leasing lisse l'investissement sur plusieurs années, préserve la trésorerie et peut intégrer la maintenance. Il s'ajoute aux financements classiques, comme les budgets d'investissement, les appels à projets régionaux et les achats groupés. Nos conseillers étudient avec vous la formule la plus adaptée à votre établissement et à la durée d'usage prévue des équipements.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Peut-on acheter du matériel de simulation via une centrale d'achat publique ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Oui. Medicalem est référencé à la centrale d'achat Resah, qui accompagne les établissements publics de santé et médico-sociaux. Passer par Resah permet de commander des simulateurs et mannequins médicaux sans lancer votre propre procédure de marché, tout en respectant le code de la commande publique. Les acheteurs publics gagnent du temps et sécurisent juridiquement leur achat. Nous vous indiquons la marche à suivre sur simple demande.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Qui assure la maintenance des mannequins haute fidélité en France ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Medicalem assure en interne le SAV et la maintenance des simulateurs qu'il distribue. Ses techniciens ont été formés aux États-Unis chez Gaumard, fabricant de mannequins haute fidélité. Cette expertise interne limite les immobilisations, car le diagnostic et la réparation sont réalisés par une équipe qui connaît le matériel. Des contrats de maintenance préventive peuvent être proposés pour garder vos mannequins opérationnels toute l'année.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Quelle différence entre un mannequin haute fidélité et un simulateur procédural ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Un mannequin haute fidélité est un mannequin électronique complet qui reproduit des signes vitaux, des réponses physiologiques et des scénarios cliniques pilotés par un formateur. Il sert à entraîner le raisonnement et le travail en équipe. Un simulateur procédural est un modèle centré sur un geste précis, par exemple une ponction, une intubation ou une suture. Il permet de répéter la technique jusqu'à la maîtriser. Les deux sont complémentaires dans un centre de simulation.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Quels sont les délais de livraison et d'installation ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Les délais varient selon le produit et sa disponibilité chez le fabricant. Les consommables et modèles anatomiques courants sont généralement expédiés rapidement depuis notre site de Saint-Cyr-l'École. Les mannequins haute fidélité peuvent nécessiter un délai de fabrication et une installation avec prise en main sur place par nos techniciens. Un délai précis vous est communiqué sur chaque devis, avec une date d'installation planifiée avec votre équipe.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Medicalem reprend-il les anciens mannequins et simulateurs ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Oui. Dans le cadre de sa politique RSE et de la réglementation DEEE, Medicalem organise la reprise des matériels usagés lors du renouvellement de votre parc. Les équipements électroniques en fin de vie sont orientés vers les filières de traitement agréées. Cette démarche s'inscrit dans l'engagement d'entreprise à mission de Medicalem. Demandez les conditions de reprise lors de votre devis.</p>
+          </details>
+          <details class="faq-item reveal group bg-white rounded-2xl border border-slate-100 open:shadow-soft">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+              <h3 class="faq-q text-base sm:text-lg font-bold text-brand-900">Quelles marques de simulateurs médicaux distribue Medicalem ?</h3>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-600 shrink-0 transition-transform" aria-hidden="true"></i>
+            </summary>
+            <p class="faq-a px-5 pb-5 text-slate-600 leading-relaxed">Medicalem distribue en France les simulateurs et mannequins de fabricants reconnus : Gaumard, Limbs &amp; Things, Adam Rouilly, Nasco, Simulaids, BT Inc, Arler Zimmer, Holtex et Laparo Medical Simulators. Le catalogue compte plus de 1500 références, des mannequins haute fidélité aux modèles anatomiques et kits de maquillage de blessures. Ce choix multimarque permet de recommander le matériel le plus adapté à chaque besoin pédagogique, sans exclusivité imposée.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13. CTA FINAL : formulaire court de contact
+         ============================================================ -->
+    <section id="contact" class="py-16 lg:py-24 bg-white" aria-labelledby="cta-titre">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal rounded-3xl bg-gradient-to-br from-brand-700 to-brand-900 text-white p-8 sm:p-12 lg:p-16 grid lg:grid-cols-12 gap-10 items-center shadow-card">
+          <div class="lg:col-span-5">
+            <h2 id="cta-titre" class="text-3xl sm:text-4xl font-extrabold tracking-tight">Un projet de centre de simulation ? Parlons-en</h2>
+            <p class="mt-5 text-brand-100 text-lg leading-relaxed">Décrivez votre besoin en quelques mots. Un conseiller Medicalem vous rappelle pour vous orienter vers les simulateurs adaptés, préparer un devis ou étudier une solution de leasing.</p>
+            <ul class="mt-6 space-y-3 text-brand-50">
+              <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-brand-200" aria-hidden="true"></i><a href="tel:+33139167190" class="font-bold text-white hover:underline">01 39 16 71 90</a></li>
+              <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-brand-200 mt-0.5" aria-hidden="true"></i><address class="not-italic">6 bd Georges Marie Guynemer<br>ZA Charles Renard, Bât. 3<br>78210 Saint-Cyr-l'École</address></li>
+              <li class="flex items-center gap-3"><i data-lucide="clock" class="w-5 h-5 text-brand-200" aria-hidden="true"></i>Réponse sous 48 h ouvrées</li>
+            </ul>
+          </div>
+
+          <form class="lg:col-span-7 bg-white text-slate-700 rounded-2xl p-6 sm:p-8 grid sm:grid-cols-2 gap-4" action="/contact" method="post" novalidate>
+            <div>
+              <label for="f-nom" class="block text-sm font-semibold text-brand-900">Nom et prénom <span class="text-accent-600" aria-hidden="true">*</span></label>
+              <input id="f-nom" name="nom" type="text" required autocomplete="name" class="mt-1 w-full h-11 px-3 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400">
+            </div>
+            <div>
+              <label for="f-etab" class="block text-sm font-semibold text-brand-900">Établissement <span class="text-accent-600" aria-hidden="true">*</span></label>
+              <input id="f-etab" name="etablissement" type="text" required autocomplete="organization" class="mt-1 w-full h-11 px-3 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400">
+            </div>
+            <div>
+              <label for="f-email" class="block text-sm font-semibold text-brand-900">E-mail professionnel <span class="text-accent-600" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" class="mt-1 w-full h-11 px-3 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400">
+            </div>
+            <div>
+              <label for="f-tel" class="block text-sm font-semibold text-brand-900">Téléphone</label>
+              <input id="f-tel" name="telephone" type="tel" autocomplete="tel" class="mt-1 w-full h-11 px-3 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400">
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-univers" class="block text-sm font-semibold text-brand-900">Votre univers</label>
+              <select id="f-univers" name="univers" class="mt-1 w-full h-11 px-3 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400">
+                <option value="">Sélectionner</option>
+                <option>Lycée professionnel ou préhospitalier</option>
+                <option>Hôpital ou université</option>
+                <option>Service d'urgences</option>
+                <option>Gestion de crise</option>
+                <option>Militaire</option>
+                <option>Vétérinaire</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="f-msg" class="block text-sm font-semibold text-brand-900">Votre projet <span class="text-accent-600" aria-hidden="true">*</span></label>
+              <textarea id="f-msg" name="message" rows="3" required placeholder="Ex. : équiper une salle de simulation pour 40 étudiants infirmiers, budget à définir, livraison souhaitée avant la rentrée." class="mt-1 w-full px-3 py-2 rounded-xl border border-slate-200 bg-surface focus:bg-white focus:border-brand-400"></textarea>
+            </div>
+            <div class="sm:col-span-2 flex items-start gap-3">
+              <input id="f-rgpd" name="rgpd" type="checkbox" required class="mt-1 w-4 h-4 rounded border-slate-300 text-brand-600">
+              <label for="f-rgpd" class="text-xs text-slate-500">J'accepte que Medicalem utilise ces informations pour traiter ma demande. Aucune communication commerciale sans mon accord. <a href="/politique-de-confidentialite" class="underline">Politique de confidentialité</a>.</label>
+            </div>
+            <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-3">
+              <button type="submit" class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-accent-600 hover:bg-accent-700 text-white font-bold transition-colors">Envoyer ma demande <i data-lucide="send" class="w-4 h-4" aria-hidden="true"></i></button>
+              <p class="text-xs text-slate-500"><span class="text-accent-600" aria-hidden="true">*</span> Champs obligatoires</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       14. FOOTER
+       ============================================================ -->
+  <footer class="bg-brand-900 text-brand-100" aria-labelledby="footer-titre">
+    <h2 id="footer-titre" class="sr-only">Pied de page</h2>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
+
+      <!-- Coordonnées -->
+      <div class="lg:col-span-4">
+        <a href="/" class="inline-block" aria-label="Medicalem, retour à l'accueil">
+          <span class="text-2xl font-extrabold text-white tracking-tight">medicalem</span>
+        </a>
+        <p class="mt-2 text-sm italic text-brand-200">Parce que la vie est précieuse</p>
+        <p class="mt-4 text-sm leading-relaxed">Distributeur français de simulateurs et mannequins médicaux pour la formation des professionnels de santé.</p>
+        <address class="mt-5 not-italic text-sm space-y-2">
+          <p class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true"></i><span>6 bd Georges Marie Guynemer<br>ZA Charles Renard, Bât. 3<br>78210 Saint-Cyr-l'École</span></p>
+          <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 shrink-0" aria-hidden="true"></i><a href="tel:+33139167190" class="hover:text-white">01 39 16 71 90</a></p>
+        </address>
+        <ul class="mt-5 flex items-center gap-3" aria-label="Réseaux sociaux">
+          <li><a href="https://www.linkedin.com/company/medicalem" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="Medicalem sur LinkedIn" rel="noopener"><i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/medicalem" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="Medicalem sur Facebook" rel="noopener"><i data-lucide="facebook" class="w-5 h-5" aria-hidden="true"></i></a></li>
+          <li><a href="https://vimeo.com/medicalem" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 inline-flex items-center justify-center" aria-label="Medicalem sur Vimeo" rel="noopener"><i data-lucide="video" class="w-5 h-5" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+
+      <!-- Gammes -->
+      <nav class="lg:col-span-2" aria-labelledby="footer-gammes">
+        <h3 id="footer-gammes" class="text-sm font-bold uppercase tracking-wider text-white">Gammes</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/gammes/mannequins-haute-fidelite" class="hover:text-white">Mannequins haute fidélité</a></li>
+          <li><a href="/gammes/simulateurs-proceduraux" class="hover:text-white">Simulateurs procéduraux</a></li>
+          <li><a href="/gammes/simulateurs-echogenes" class="hover:text-white">Simulateurs échogènes</a></li>
+          <li><a href="/gammes/outils-numeriques" class="hover:text-white">Outils numériques</a></li>
+          <li><a href="/gammes/anatomie" class="hover:text-white">Anatomie</a></li>
+          <li><a href="/gammes/kits-de-blessures" class="hover:text-white">Kits de blessures</a></li>
+          <li><a href="/gammes/mannequins-de-soins" class="hover:text-white">Mannequins de soins</a></li>
+          <li><a href="/gammes/mannequins-rcp" class="hover:text-white">Mannequins RCP</a></li>
+        </ul>
+      </nav>
+
+      <!-- Univers -->
+      <nav class="lg:col-span-2" aria-labelledby="footer-univers">
+        <h3 id="footer-univers" class="text-sm font-bold uppercase tracking-wider text-white">Univers</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/univers/lycees-professionnels-prehospitalier" class="hover:text-white">Lycées pro et préhospitalier</a></li>
+          <li><a href="/univers/hopitaux-universites" class="hover:text-white">Hôpitaux et universités</a></li>
+          <li><a href="/univers/urgences" class="hover:text-white">Urgences</a></li>
+          <li><a href="/univers/gestion-de-crise" class="hover:text-white">Gestion de crise</a></li>
+          <li><a href="/univers/militaires" class="hover:text-white">Militaires</a></li>
+          <li><a href="/univers/veterinaire" class="hover:text-white">Vétérinaire</a></li>
+        </ul>
+        <h3 class="mt-6 text-sm font-bold uppercase tracking-wider text-white">Entreprise</h3>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li><a href="/notre-expertise" class="hover:text-white">Notre expertise</a></li>
+          <li><a href="/sav-maintenance" class="hover:text-white">SAV et maintenance</a></li>
+          <li><a href="/leasing-simulation-medicale" class="hover:text-white">Leasing</a></li>
+          <li><a href="/achat-public-resah" class="hover:text-white">Achat public via Resah</a></li>
+          <li><a href="/engagements" class="hover:text-white">Engagements et RSE</a></li>
+          <li><a href="/actualites" class="hover:text-white">Actualités</a></li>
+          <li><a href="/agenda" class="hover:text-white">Agenda</a></li>
+        </ul>
+      </nav>
+
+      <!-- Newsletter -->
+      <div class="lg:col-span-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-white">Newsletter</h3>
+        <p class="mt-4 text-sm">Nouveautés produits, démonstrations et conseils pour vos formations en simulation. Un e-mail par mois, pas plus.</p>
+        <form class="mt-4 flex flex-col sm:flex-row gap-2" action="/newsletter" method="post">
+          <label for="nl-email" class="sr-only">Votre adresse e-mail</label>
+          <input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="votre@email.fr" class="flex-1 h-11 px-4 rounded-full bg-white/10 border border-white/15 text-white placeholder:text-brand-200 focus:bg-white focus:text-brand-900 focus:placeholder:text-slate-400">
+          <button type="submit" class="h-11 px-5 rounded-full bg-white text-brand-900 font-bold hover:bg-brand-50 transition-colors">S'abonner</button>
+        </form>
+        <p class="mt-3 text-xs text-brand-200">Désinscription en un clic. Vos données restent chez Medicalem.</p>
+        <div class="mt-8 flex flex-wrap gap-3 text-xs">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10"><i data-lucide="badge-check" class="w-3.5 h-3.5" aria-hidden="true"></i> Entreprise à mission</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10"><i data-lucide="landmark" class="w-3.5 h-3.5" aria-hidden="true"></i> Référencé Resah</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10"><i data-lucide="recycle" class="w-3.5 h-3.5" aria-hidden="true"></i> Reprise DEEE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bas de page -->
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-brand-200">
+        <p>© 2026 Medicalem. Tous droits réservés.</p>
+        <nav aria-label="Liens légaux">
+          <ul class="flex flex-wrap gap-x-5 gap-y-2">
+            <li><a href="/mentions-legales" class="hover:text-white">Mentions légales</a></li>
+            <li><a href="/cgv" class="hover:text-white">CGV</a></li>
+            <li><a href="/politique-de-confidentialite" class="hover:text-white">Politique de confidentialité</a></li>
+            <li><a href="/cookies" class="hover:text-white">Gestion des cookies</a></li>
+            <li><a href="/plan-du-site" class="hover:text-white">Plan du site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barre d'action mobile : CTA devis toujours accessible -->
+  <div class="xl:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-slate-200 p-3 flex gap-3 md:hidden" role="region" aria-label="Actions rapides">
+    <a href="tel:+33139167190" class="flex-1 inline-flex items-center justify-center gap-2 h-11 rounded-full border-2 border-brand-600 text-brand-700 font-bold text-sm"><i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i> Appeler</a>
+    <a href="/demande-de-devis" class="flex-1 inline-flex items-center justify-center gap-2 h-11 rounded-full bg-accent-600 text-white font-bold text-sm"><i data-lucide="file-text" class="w-4 h-4" aria-hidden="true"></i> Demander un devis</a>
+  </div>
+  <div class="h-[68px] md:hidden" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       Scripts : icônes Lucide + interactions légères (vanilla JS)
+       ============================================================ -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      /* Icônes Lucide */
+      if (window.lucide) { window.lucide.createIcons(); }
+
+      /* Ombre du header au défilement */
+      var header = document.getElementById('header');
+      var onScroll = function () { header.classList.toggle('shadow-soft', window.scrollY > 8); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Menu burger */
+      var burger = document.getElementById('burger');
+      var menuMobile = document.getElementById('menu-mobile');
+      burger.addEventListener('click', function () {
+        var open = menuMobile.classList.toggle('hidden') === false;
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        burger.innerHTML = '<i data-lucide="' + (open ? 'x' : 'menu') + '" class="w-5 h-5" aria-hidden="true"></i>';
+        if (window.lucide) { window.lucide.createIcons(); }
+      });
+
+      /* Méga-menu : clic et clavier (le survol est géré en CSS) */
+      document.querySelectorAll('.has-mega').forEach(function (wrap) {
+        var trigger = wrap.querySelector('.mega-trigger');
+        trigger.addEventListener('click', function () {
+          var open = wrap.getAttribute('data-open') !== 'true';
+          wrap.setAttribute('data-open', String(open));
+          trigger.setAttribute('aria-expanded', String(open));
+        });
+        wrap.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { wrap.setAttribute('data-open', 'false'); trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); }
+        });
+        document.addEventListener('click', function (e) {
+          if (!wrap.contains(e.target)) { wrap.setAttribute('data-open', 'false'); trigger.setAttribute('aria-expanded', 'false'); }
+        });
+      });
+
+      /* Apparition des sections au scroll */
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        reveals.forEach(function (el) { io.observe(el); });
+        setTimeout(function () { reveals.forEach(function (el) { el.classList.add('is-visible'); }); }, 2500);
+      } else {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      /* Ma cotation : compteur + annonce accessible */
+      var count = 0;
+      var badge = document.getElementById('cotation-count');
+      var live = document.getElementById('cotation-live');
+      document.querySelectorAll('.btn-cotation').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          count += 1;
+          badge.textContent = count;
+          live.textContent = btn.getAttribute('data-produit') + ' ajouté à votre cotation. ' + count + ' produit(s) au total.';
+          var original = btn.innerHTML;
+          btn.innerHTML = '<i data-lucide="check" class="w-4 h-4" aria-hidden="true"></i> Ajouté';
+          btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+          if (window.lucide) { window.lucide.createIcons(); }
+          setTimeout(function () {
+            btn.innerHTML = original;
+            btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+            if (window.lucide) { window.lucide.createIcons(); }
+          }, 1800);
+        });
+      });
+
+      /* Filtres par domaine clinique */
+      var chips = document.querySelectorAll('.chip');
+      var items = document.querySelectorAll('.domaine-item');
+      var vide = document.getElementById('domaines-vide');
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var dom = chip.getAttribute('data-domaine');
+          chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+          var visibles = 0;
+          items.forEach(function (item) {
+            var ok = dom === 'tous' || item.getAttribute('data-domaines').split(' ').indexOf(dom) !== -1;
+            item.classList.toggle('hidden', !ok);
+            if (ok) { visibles += 1; }
+          });
+          vide.classList.toggle('hidden', visibles > 0);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

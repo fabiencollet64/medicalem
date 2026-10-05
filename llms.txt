@@ -1,0 +1,58 @@
+# Medicalem
+
+> Medicalem est un distributeur français de simulateurs et mannequins médicaux pour la formation des professionnels de santé, basé à Saint-Cyr-l'École (78). Plus de 1500 références, plus de 4000 clients, 75 % des IFSI et 50 % des centres d'enseignement équipés chaque année. Conseil d'experts, SAV et maintenance en interne, leasing, achat simplifié via la centrale d'achat Resah. Entreprise à mission. Signature : « Parce que la vie est précieuse ».
+
+Medicalem distribue en France les marques Gaumard, Limbs & Things, Adam Rouilly, Nasco, Simulaids, BT Inc, Arler Zimmer, Holtex et Laparo Medical Simulators. Ses techniciens SAV ont été formés aux États-Unis chez Gaumard. L'entreprise gère la conformité DEEE et reprend les matériels usagés.
+
+Publics : lycées professionnels et préhospitalier, hôpitaux et universités, services d'urgence, gestion de crise, forces armées, formation vétérinaire. Interlocuteurs : responsables pédagogiques, cadres de santé, directeurs de centres de simulation, acheteurs publics.
+
+Coordonnées : 6 bd Georges Marie Guynemer, ZA Charles Renard Bât. 3, 78210 Saint-Cyr-l'École, France. Téléphone : +33 1 39 16 71 90.
+
+## Pages essentielles
+
+- [Accueil](https://www.medicalem.com/) : présentation, univers, gammes, nouveautés, FAQ
+- [Catalogue de simulateurs et mannequins](https://www.medicalem.com/produits) : plus de 1500 références filtrables par univers, type de produit et domaine clinique
+- [Notre expertise](https://www.medicalem.com/notre-expertise) : conseil, installation, formation à la prise en main
+- [SAV et maintenance](https://www.medicalem.com/sav-maintenance) : maintenance en interne des mannequins haute fidélité, techniciens formés chez Gaumard
+- [Leasing de matériel de simulation](https://www.medicalem.com/leasing-simulation-medicale) : financement des centres de simulation
+- [Achat public via Resah](https://www.medicalem.com/achat-public-resah) : commande sans procédure de marché supplémentaire pour les établissements publics
+- [Engagements et RSE](https://www.medicalem.com/engagements) : entreprise à mission, conformité DEEE, reprise des matériels usagés
+- [Contact et demande de devis](https://www.medicalem.com/contact)
+
+## Gammes de produits
+
+- [Mannequins électroniques haute fidélité](https://www.medicalem.com/gammes/mannequins-haute-fidelite) : patients simulés adultes, pédiatriques et nouveau-nés pilotés par logiciel
+- [Simulateurs procéduraux](https://www.medicalem.com/gammes/simulateurs-proceduraux) : ponction, intubation, sondage, suture
+- [Simulateurs échogènes](https://www.medicalem.com/gammes/simulateurs-echogenes) : fantômes et modèles compatibles échographie
+- [Outils numériques](https://www.medicalem.com/gammes/outils-numeriques) : moniteurs patient simulés, logiciels de scénarios, réalité virtuelle, débriefing
+- [Anatomie](https://www.medicalem.com/gammes/anatomie) : squelettes, modèles et planches anatomiques
+- [Kits de blessures et maquillage](https://www.medicalem.com/gammes/kits-de-blessures) : moulages et maquillage pour la gestion de crise
+- [Mannequins de soins infirmiers](https://www.medicalem.com/gammes/mannequins-de-soins) : matériel pédagogique de référence des IFSI
+- [Mannequins RCP et secourisme](https://www.medicalem.com/gammes/mannequins-rcp) : réanimation adulte, enfant, nourrisson
+
+## Univers
+
+- [Lycées professionnels et préhospitalier](https://www.medicalem.com/univers/lycees-professionnels-prehospitalier)
+- [Hôpitaux et universités](https://www.medicalem.com/univers/hopitaux-universites)
+- [Urgences](https://www.medicalem.com/univers/urgences)
+- [Gestion de crise](https://www.medicalem.com/univers/gestion-de-crise)
+- [Militaires](https://www.medicalem.com/univers/militaires)
+- [Vétérinaire](https://www.medicalem.com/univers/veterinaire)
+
+## Nouveautés
+
+- [ACTB, mannequin ALS-RCP](https://www.medicalem.com/produits/actb-mannequin-als-rcp) : mannequin adulte de réanimation RCP et ALS
+- [TERi, mannequin gériatrique](https://www.medicalem.com/produits/teri-mannequin-geriatrique) : soins et prise en charge de la personne âgée
+- [SkillQube, simulateur multifonction](https://www.medicalem.com/produits/skillqube-simulateur-multifonction) : moniteur patient simulé et pilotage de scénarios
+- [ALEX, mannequin de communication patient avec IA](https://www.medicalem.com/produits/alex-mannequin-communication-patient-ia) : entraînement à l'anamnèse et à la relation soignant-soigné
+
+## Questions fréquentes
+
+- [FAQ simulateurs et mannequins médicaux](https://www.medicalem.com/#faq) : choix d'un mannequin pour un IFSI, financement d'un centre de simulation, achat via centrale publique, maintenance des mannequins haute fidélité, différence haute fidélité et procédural, délais, reprise DEEE, marques distribuées
+
+## Optional
+
+- [Actualités](https://www.medicalem.com/actualites)
+- [Agenda des salons et démonstrations](https://www.medicalem.com/agenda)
+- [Mentions légales](https://www.medicalem.com/mentions-legales)
+- [Conditions générales de vente](https://www.medicalem.com/cgv)
